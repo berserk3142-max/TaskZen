@@ -1,73 +1,52 @@
-# Welcome to your Lovable project
+TaskFlow (Taskzen)
+TaskFlow is a lightweight task manager built with Vite + React + TypeScript and shadcn/ui primitives. It provides task creation, editing, filtering, tags, priorities, and toasts.
 
-## Project info
+Features
 
-**URL**: https://lovable.dev/projects/3d436bfa-c500-4de2-b470-dc3ad5891564
+Create, update and delete tasks (see addTask, updateTask, deleteTask)
+Persistent in-memory task list and ordering (see TaskProvider)
+UI components: header, task list, filters, stats and dialogs (see src/components)
+Toast notifications (Toaster in src/components/ui/toaster.tsx)
+Quick links
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/3d436bfa-c500-4de2-b470-dc3ad5891564) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+Project config: package.json
+HTML entry: index.html
+App entry: main.tsx — renders App
+Root app: App in App.tsx
+Main page: Index in Index.tsx
+Task context: TaskProvider and helpers in TaskContext.tsx
+UI toaster: Toaster in toaster.tsx
+UI toast primitives: toast.tsx
+Getting started
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Install dependencies (npm) and run dev server
+npm install
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+(If you prefer Bun: run `bun install` then `bun run dev`.)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Available scripts (from package.json)
+- npm run dev — start Vite dev server
+- npm run build — build production bundle
+- npm run build:dev — build in development mode
+- npm run preview — preview production build
+- npm run lint — run ESLint
 
-## What technologies are used for this project?
+Project structure (high level)
+- public/ — static assets
+- src/
+  - main: [main.tsx](http://_vscodecontentref_/9) (bootstraps `App`)
+  - pages: [Index.tsx](http://_vscodecontentref_/10)
+  - contexts: [TaskContext.tsx](http://_vscodecontentref_/11)
+  - components: src/components (Header, TaskCard, TaskDialog, TaskFilters, TaskList, TaskStats, ui/)
+  - lib: src/lib/utils.ts
+- config: [vite.config.ts](http://_vscodecontentref_/12), [tailwind.config.ts](http://_vscodecontentref_/13)
 
-This project is built with:
+Notes
+- Routing is handled by react-router in `App`.
+- React Query is configured at app root: see `App` and `new QueryClient()`.
+- Tailwind animations and utilities are configured in [tailwind.config.ts](http://_vscodecontentref_/14).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/3d436bfa-c500-4de2-b470-dc3ad5891564) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+If you want this README written to the repository file, add the content above to README.md.
